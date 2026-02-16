@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World of Berlingo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #aaa;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px 40px;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%);
+        }
+
+        .card-content {
+            position: relative;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .card-emoji {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .card-content h2 {
+            font-size: 1.4em;
+            margin-bottom: 4px;
+        }
+
+        .card-content p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        .chocolate { background-image: url('images/chocolate.jpg'); }
+        .city { background-image: url('images/italian-village.jpg'); }
+        .stationery { background-image: url('images/stationery.jpg'); }
+        .car { background-image: url('images/berlingo-car.jpg'); }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The World of Berlingo</h1>
+        <p>One name, many stories. Explore the different faces of Berlingo.</p>
+    </header>
+
+    <div class="grid">
+        <a href="chocolate.html" class="card">
+            <div class="card-bg chocolate"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <div class="card-emoji">🍫</div>
+                <h2>Berlingo Chocolate</h2>
+                <p>From Russia to Italy</p>
+            </div>
+        </a>
+
+        <a href="city.html" class="card">
+            <div class="card-bg city"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <div class="card-emoji">🏘️</div>
+                <h2>Berlingo the City</h2>
+                <p>A hidden gem in Lombardy, Italy</p>
+            </div>
+        </a>
+
+        <a href="stationery.html" class="card">
+            <div class="card-bg stationery"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <div class="card-emoji">✏️</div>
+                <h2>Berlingo Stationery</h2>
+                <p>Your way to great office supplies</p>
+            </div>
+        </a>
+
+        <a href="car.html" class="card">
+            <div class="card-bg car"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <div class="card-emoji">🚗</div>
+                <h2>Berlingo the Car</h2>
+                <p>The iconic French van by Citroën</p>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        A Berlingo family project &mdash; because the name is everywhere.
+    </footer>
+</body>
+</html>
