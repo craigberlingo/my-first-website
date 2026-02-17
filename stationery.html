@@ -95,6 +95,70 @@
         .back-link a:hover {
             background: #3a6a88;
         }
+
+        /* ── Site Footer ── */
+        .site-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin-bottom: 30px;
+            background: transparent;
+            padding: 0;
+        }
+
+        .footer-nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .footer-nav a:hover {
+            color: white;
+        }
+
+        .footer-fact {
+            max-width: 600px;
+            margin: 0 auto 24px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px 24px;
+        }
+
+        .fact-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .fact-text {
+            color: #ccc;
+            font-size: 0.9em;
+            line-height: 1.6;
+            transition: opacity 0.5s ease;
+        }
+
+        .fact-text.fade {
+            opacity: 0;
+        }
+
+        .footer-copyright {
+            color: #555;
+            font-size: 0.8em;
+        }
     </style>
 </head>
 <body>
@@ -128,5 +192,53 @@
             <a href="index.html">Explore More Berlingos</a>
         </div>
     </div>
+    <footer class="site-footer">
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="chocolate.html">🍫 Chocolate</a>
+            <a href="city.html">🏘️ The City</a>
+            <a href="stationery.html">✏️ Stationery</a>
+            <a href="car.html">🚗 The Car</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-fact">
+            <span class="fact-label">Did you know?</span>
+            <p class="fact-text" id="berlingo-fact"></p>
+        </div>
+        <p class="footer-copyright">&copy; 2026 Craig Berlingo</p>
+    </footer>
+
+    <script>
+        const berlingoFacts = [
+            "The Citroën Berlingo is the best-selling compact van in the UK, consistently outselling the Ford Transit Connect.",
+            "The third-generation Berlingo (2018) shares its platform with the Peugeot Partner, Opel Combo, Vauxhall Combo, and Toyota Proace City — different badges, same bones.",
+            "The fully electric ë-Berlingo, launched in 2021, offers approximately 280km of range on a single charge under WLTP conditions.",
+            "Berlingo is a small comune in the Province of Brescia, Lombardy, Italy, with a population of approximately 1,860 residents.",
+            'In the local Brescian dialect, the town of Berlingo is called "Berlènch."',
+            'The French hard candy "Berlingot" — small, triangular, and traditionally striped — takes its name from the Italian word "berlingozzo" and has been a specialty of Carpentras, Provence for centuries.',
+            "Berlingo stationery was founded in 2005 and grew into one of the largest school and office supply brands across Russia and Eastern Europe.",
+            "Berlingo stationery's major rebranding, led by the Moscow design agency Suprematika, repositioned it as a premium competitor across European and Asian markets.",
+            "The commune of Berlingo sits in the Po Valley in the Province of Brescia — a region renowned for Franciacorta sparkling wine and cheeses including Grana Padano.",
+            "Craig is using this website to better learn AI-assisted development — building real features with tools like Claude Code to understand how modern developers ship software."
+        ];
+
+        const factEl = document.getElementById('berlingo-fact');
+        let currentFact = Math.floor(Math.random() * berlingoFacts.length);
+
+        function showFact(index) {
+            factEl.classList.add('fade');
+            setTimeout(() => {
+                factEl.textContent = berlingoFacts[index];
+                factEl.classList.remove('fade');
+            }, 500);
+        }
+
+        factEl.textContent = berlingoFacts[currentFact];
+
+        setInterval(() => {
+            currentFact = (currentFact + 1) % berlingoFacts.length;
+            showFact(currentFact);
+        }, 6000);
+    </script>
 </body>
 </html>
