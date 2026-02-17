@@ -101,6 +101,12 @@
 
         .chocolate { background-image: url('images/chocolate.jpg'); }
         .city { background-image: url('images/italian-village.jpg'); }
+        .city-sunset {
+            background-image: url('images/italian-village-sunset.png');
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .card:hover .city-sunset { opacity: 1; }
         .stationery { background-image: url('images/stationery.jpg'); }
         .car { background-image: url('images/berlingo-car.jpg'); }
 
@@ -198,6 +204,7 @@
 
         <a href="city.html" class="card">
             <div class="card-bg city"></div>
+            <div class="card-bg city-sunset"></div>
             <div class="card-overlay"></div>
             <div class="card-content">
                 <div class="card-emoji">🏘️</div>
