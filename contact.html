@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berlingo the City | The World of Berlingo</title>
+    <title>Contact | The World of Berlingo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -20,7 +20,7 @@
         }
 
         nav a {
-            color: #52b788;
+            color: #a78bfa;
             text-decoration: none;
             font-weight: bold;
             font-size: 1em;
@@ -31,7 +31,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(27,67,50,0.7), rgba(45,106,79,0.7)), url('images/italian-village.jpg') center/cover;
+            background: linear-gradient(135deg, rgba(46,16,101,0.85), rgba(91,33,182,0.85));
             padding: 80px 20px;
             text-align: center;
         }
@@ -52,48 +52,100 @@
         }
 
         .content {
-            max-width: 700px;
+            max-width: 600px;
             margin: 40px auto;
             padding: 0 20px 60px;
         }
 
-        .fun-fact {
-            background: rgba(255,255,255,0.08);
-            border-left: 4px solid #52b788;
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .fun-fact h2 {
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            color: #52b788;
-        }
-
-        .fun-fact p {
-            line-height: 1.7;
-            color: #ccc;
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .back-link a {
-            display: inline-block;
-            background: #52b788;
+            padding: 12px 16px;
             color: white;
-            text-decoration: none;
-            padding: 12px 30px;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #a78bfa;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #555;
+        }
+
+        textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 14px;
             border-radius: 8px;
+            font-size: 1em;
             font-weight: bold;
+            cursor: pointer;
             transition: background 0.2s;
         }
 
-        .back-link a:hover {
-            background: #40916c;
+        .submit-btn:hover {
+            background: #6d28d9;
+        }
+
+        .submit-btn:disabled {
+            background: #4c1d95;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .error-msg {
+            color: #f87171;
+            font-size: 0.85em;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(167,139,250,0.3);
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .success-message .emoji {
+            font-size: 3em;
+            margin-bottom: 16px;
+        }
+
+        .success-message h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .success-message p {
+            color: #ccc;
+            line-height: 1.6;
         }
 
         /* ── Site Footer ── */
@@ -167,31 +219,36 @@
     </nav>
 
     <div class="hero">
-        <div class="emoji">🏘️</div>
-        <h1>Berlingo, Italy</h1>
-        <p>A hidden gem in the province of Brescia, Lombardy</p>
+        <div class="emoji">✉️</div>
+        <h1>Get in Touch</h1>
+        <p>Questions, suggestions, or found another Berlingo? Let us know.</p>
     </div>
 
     <div class="content">
-        <div class="fun-fact">
-            <h2>Fun Fact</h2>
-            <p>Berlingo is a tiny comune (municipality) in the province of Brescia, in the Lombardy region of northern Italy. The residents are called <strong>Berlinghesi</strong>! Nestled among rolling hills and lush vineyards, this little town is home to the stunning Church of San Giovanni Battista and is known for its picturesque landscapes and traditional Lombard cuisine served at local trattorias.</p>
-            <p style="margin-top: 12px;"><a href="https://en.wikipedia.org/wiki/Berlingo" style="color: #52b788;">Berlingo on Wikipedia &rarr;</a></p>
+        <div id="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="What's on your mind?"></textarea>
+            </div>
+            <button class="submit-btn" id="submit-btn" onclick="submitForm()">Send Message</button>
+            <p class="error-msg" id="error-msg">Something went wrong. Please try again.</p>
         </div>
 
-        <div class="fun-fact">
-            <h2>A Peaceful Retreat</h2>
-            <p>Despite being a small village, Berlingo is surrounded by scenic walking trails, and visitors can enjoy outdoor activities like boating and hiking in the surrounding countryside. Its neighbors include the towns of Lograto, Maclodio, and Travagliato. It's the kind of place where you go to slow down and enjoy life the Italian way.</p>
-            <p style="margin-top: 12px;">
-                <a href="https://en.comuni-italiani.it/017/015/" style="color: #52b788;">Berlingo town profile — Comuni Italiani &rarr;</a><br>
-                <a href="https://www.italymagazine.com/berlingo" style="color: #52b788;">Berlingo — ITALY Magazine &rarr;</a>
-            </p>
-        </div>
-
-        <div class="back-link">
-            <a href="index.html">Explore More Berlingos</a>
+        <div class="success-message" id="success-message">
+            <div class="emoji">✅</div>
+            <h2>Message received!</h2>
+            <p>Thanks for reaching out. We'll get back to you soon.</p>
         </div>
     </div>
+
     <footer class="site-footer">
         <nav class="footer-nav">
             <a href="index.html">Home</a>
@@ -208,7 +265,46 @@
         <p class="footer-copyright">&copy; 2026 Craig Berlingo</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // ── Supabase configuration ──────────────────
+        // Replace these with your values from: Supabase dashboard → Project Settings → API
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // ── Contact form submission ─────────────────
+        async function submitForm() {
+            const name    = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const btn     = document.getElementById('submit-btn');
+            const errorMsg = document.getElementById('error-msg');
+
+            if (!name || !email) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            errorMsg.style.display = 'none';
+
+            const { error } = await supabaseClient
+                .from('contact_messages')
+                .insert([{ name, email, message }]);
+
+            if (error) {
+                console.error(error);
+                errorMsg.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+                return;
+            }
+
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        }
+
+        // ── Rotating facts ──────────────────────────
         const berlingoFacts = [
             "The Citroën Berlingo is the best-selling compact van in the UK, consistently outselling the Ford Transit Connect.",
             "The third-generation Berlingo (2018) shares its platform with the Peugeot Partner, Opel Combo, Vauxhall Combo, and Toyota Proace City — different badges, same bones.",
